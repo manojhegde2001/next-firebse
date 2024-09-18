@@ -3,14 +3,20 @@
 @tailwind utilities;
 
 :root {
+  /* Light theme colors */
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #3b82f6; /* Example primary color */
+  --secondary: #f59e0b; /* Example secondary color */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Dark theme colors */
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #60a5fa; /* Example primary color for dark theme */
+    --secondary: #fbbf24; /* Example secondary color for dark theme */
   }
 }
 
@@ -23,5 +29,43 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Base colors */
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+    --muted: #e5e7eb; /* Example muted color */
+    --muted-foreground: #374151; /* Example muted foreground */
+    --border: #e5e7eb; /* Example border color */
+    --input: #f3f4f6; /* Example input background */
+    --ring: rgba(59, 130, 246, 0.5); /* Example ring color */
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    /* Dark theme base colors */
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+    --muted: #374151; /* Example muted color for dark theme */
+    --muted-foreground: #f3f4f6; /* Example muted foreground for dark theme */
+    --border: #4b5563; /* Example border color for dark theme */
+    --input: #4b5563; /* Example input background for dark theme */
+    --ring: rgba(59, 130, 246, 0.3); /* Example ring color for dark theme */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

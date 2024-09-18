@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -43,14 +44,13 @@ const SignInForm = () => {
           className={`w-full px-3 py-2 border rounded-md shadow-sm ${errors.password ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
         />
         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
-      </div>
-      <button
+      </div>5
+      <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-blue-400"
       >
         {isSubmitting ? 'Signing In...' : 'Sign In'}
-      </button>
+      </Button>
     </form>
   );
 };
